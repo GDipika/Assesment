@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "name": "dipika",
+      "address": "hyderabad",
+      "contactNo": "9876565678",
+      "email": "dipika@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "deepu",
+      "address": "hyderabad",
+      "contactNo": "9875566577",
+      "email": "deepu@123",
+      "id": 5
+    },
+    {
+      "name": "nani",
+      "address": "hyderabd",
+      "contactNo": "76546534333",
+      "email": "nani@gmail.com",
+      "id": 6
+    },
+    {
+      "name": "jinnu",
+      "address": "vizag",
+      "contactNo": "7093591594",
+      "email": "jinnu@gmail.com",
+      "id": 7
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

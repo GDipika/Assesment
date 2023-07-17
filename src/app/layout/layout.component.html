@@ -1,0 +1,112 @@
+<ng-container *ngIf="isLoggedIn; else spinner">
+  <!-- navbar starts -->
+  <div
+    class="d-flex py-2 justify-content-between"
+    style="height: 7vh; background-color: #3293a8"
+  >
+    <img class="ms-2" style="height: 100px" />
+    <div>
+      <div class="dropdown">
+        <div
+          class="dropdown me-3"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            class="rounded-circle"
+            [src]="profilePicture"
+            alt="profilePicture"
+            style="height: 30px; width: 30px"
+          />
+        </div>
+
+        <ul class="dropdown-menu">
+          <li
+            class="dropdown-item text-center p-1"
+            style="cursor: pointer"
+            (click)="logout()"
+          >
+            Logout <i class="bi bi-box-arrow-left ms-2"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- navbar ends -->
+
+  <!-- content starts -->
+  <div class="bg-light d-flex" style="height: 120vh">
+    <div
+      class="hover col-2 text-center border-end border-2"
+      style="background-color: #443886"
+    >
+      <button
+        class="d-block text-break m-4 w-75 btn btn-outline-primary"
+        routerLink="/layout/template"
+        routerLinkActive="active"
+      >
+        Templates
+      </button>
+      <button
+        class="d-block text-break m-4 w-75 btn btn-outline-primary"
+        routerLink="/layout/data"
+        routerLinkActive="active"
+      >
+        DataSharing
+      </button>
+      <button
+        class="d-block text-break m-4 w-75 btn btn-outline-primary"
+        routerLink="/layout/rxjs"
+        routerLinkActive="active"
+      >
+        RXJS operators
+      </button>
+
+      <button
+        class="d-block text-break m-4 w-75 btn btn-outline-primary"
+        routerLink="/layout/databinding"
+        routerLinkActive="active"
+      >
+        databinding
+      </button>
+      <button
+        class="d-block text-break m-4 w-75 btn btn-outline-primary"
+        routerLink="/layout/reactiveforms"
+        routerLinkActive="active"
+      >
+        Reactiveforms
+      </button>
+      <button
+        class="d-block text-break m-4 w-75 btn btn-outline-primary"
+        routerLink="/layout/topics"
+        routerLinkActive="active"
+      >
+        Pipes
+      </button>
+      <button
+        class="d-block text-break m-4 w-75 btn btn-outline-primary"
+        routerLink="/layout/javascript"
+        routerLinkActive="active"
+      >
+        javascript
+      </button>
+    </div>
+
+    <div class="col-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <!-- content starts -->
+</ng-container>
+
+<ng-template #spinner>
+  <div
+    class="d-flex justify-content-center align-items-center"
+    style="height: 100vh; width: 100vw"
+  >
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,57 @@
+<div class="bg-success d-flex py-2 justify-content-between" style="height: 10vh">
+  <h3 class="text-light text-uppercase d-flex align-bottom ms-2">Angular</h3>
+  <div>
+    <button class="btn btn-warning mb-3 mx-2" routerLink="/layout">
+      Login
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="text-center mb-5">ANGULAR</h1>
+  <div class="row first">
+    <div class="col-lg-6 col-md-4 col-sm-12">
+      <img src="/assets/features.jpg" class="img-fluid" />
+    </div>
+    <div class="col-lg-6 col-md-8 col-sm-12 desc">
+      <h3>Features of Angular</h3>
+
+      <div style="line-height: 3.5em">
+        <li>Faster Development Process.</li>
+        <li>Readable and Testable Code.</li>
+        <li>Lightweight Web Applications.</li>
+        <li>Efficient Problem-Solving Patterns.</li>
+        <li>Excellent Material Design Library.</li>
+      </div>
+    </div>
+  </div>
+  <br /><br />
+  <!-- DATA BINDING -->
+  <div class="row first">
+    <div class="col-lg-6 col-md-8 col-sm-12 desc">
+      <h3>Types of Data Binding in Angular</h3>
+      <div style="line-height: 3.5em">
+        <li>String Interpolation.</li>
+        <li>Property Binding..</li>
+        <li>Event Binding..</li>
+        <li>Two-way binding.</li>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-4 col-sm-12">
+      <img src="/assets/databinding.png" class="img-fluid h-50 w-100" />
+    </div>
+  </div>
+</div>
+<div class="bg-primary text-center mb-3">
+  <h1 class="text-white">DO You want to learn more..</h1> <div>
+    <button class="btn btn-warning mb-3 mx-2" routerLink="/layout">
+      click here
+    </button>
+</div>
+<div
+  class="bg-secondary py-2 d-flex align-items-center justify-content-center text-white fs-4"
+>
+  Copyright <i class="bi bi-c-circle ms-1 me-1"></i> {{ date }} All Rights
+  Reserved.
+</div>
+<router-outlet></router-outlet>

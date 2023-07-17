@@ -1,0 +1,92 @@
+<h1>Directives in Angular</h1>
+<div class="container my-4">
+  <div class="card text-center h-200 w-75 mx-auto my-4">
+    <img src="/assets/directives.png" alt="Angular Directive" />
+  </div>
+</div>
+
+<div class="card">
+  <div class="container">
+    <div class="card text-center h-200 w-75 mx-auto my-4">
+      <h2>ng-container</h2>
+      <p>
+        A special element that can hold structural directives without adding new
+        elements to the DOM.
+      </p>
+    </div>
+    <div class="card text-center h-200 w-75 mx-auto my-4">
+
+      <h2>ng-content</h2>
+      <p>
+        What ng-content helps us do is get that HTML-like functionality into our
+        components, making it more flexible to use components and pass data from
+        one component to another. All you have to do is go into the component
+        you want to be projected into and specify it like this to Angular.
+      </p>
+    </div>
+    <div class="card text-center h-200 w-75 mx-auto my-4">
+      
+      <h2>ng-template</h2>
+      <p>
+        ng-template is an Angular element that is used for rendering HTML in a
+        template. However, it is not rendered directly on DOM. If you include an
+        ng-template tag to a template, the tag and the content inside it will be
+        replaced by comment upon render.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- //no need of use external tag and to display output , <ng-container> removes the redundant element, -->
+    <ng-container *ngIf=items>
+        <div *ngFor="let item of items">
+          {{item.name}}
+        </div>
+        </ng-container>
+        
+        <!-- //second example -->
+        <!-- <ul>
+          <div *ngFor="let item of items">
+        <li *ngIf="item.id==1">
+         {{item.id}} {{item.name}}
+        </li>
+          </div>
+        </ul> -->
+        
+        <ul>
+          <ng-container *ngFor="let item of items">
+        <li *ngIf="item.id>0">
+          {{item.name}}
+        </li>
+        </ng-container>
+        </ul>
+        
+        <!-- //3rd example -->
+        <ng-container *ngFor="let num of [2,5,12,3,40]">
+          <ng-container *ngIf="num%2==0">
+          {{num}}
+        </ng-container>
+        </ng-container>
+        
+        <!-- <NG-TEMPLATE></NG-TEMPLATE> -->
+        <!--content will not display from ngtemplate until we linked up to structural directive  -->
+        
+        <div *ngIf="login;else temp">
+        success
+        </div>
+        
+        <ng-template #temp>
+          invalid
+        </ng-template>
+        
+        <!-- <NG-CONTENT></NG-CONTENT> -->
+        <!-- to display data  from html or data from p->c/c->p we use ng-content ng-template -->
+        <!-- The ng-content is used when we want to insert the content dynamically inside the component that helps to increase component reusability. -->
+        
+        <div>
+          parent
+        </div>
+        <app-child1>
+          <div>{{'Added data to first component'}}</div>
+        </app-child1>

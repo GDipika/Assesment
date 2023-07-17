@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>{{ pipes }}</h1>
+  <table class="table table-bordered">
+    <tr class="bg-primary">
+      <th>Id</th>
+      <th>Name</th>
+      <th>place</th>
+      <th>DOB</th>
+      <!-- <th>DOB</th> -->
+      <th>Age</th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <th>{{ user.id }}</th>
+      <th>{{ user.name | uppercase }}</th>
+      <th>{{ user.place | lowercase }}</th>
+      <th>{{ user.dob | date }}</th>
+      <!-- <th>{{user.dob | date:'MM/dd/yyyy'}}</th> -->
+      <th>{{ user.dob | custom }}</th>
+    </tr>
+  </table>
+</div>

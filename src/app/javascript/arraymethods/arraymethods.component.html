@@ -1,0 +1,55 @@
+
+<!-- //no need of use external tag and to display output , <ng-container> removes the redundant element, -->
+    <ng-container *ngIf=items>
+        <div *ngFor="let item of items">
+          {{item.name}}
+        </div>
+        </ng-container>
+        
+        <!-- //second example -->
+        <ul>
+          <div *ngFor="let item of items">
+        <li *ngIf="item.id==1">
+         {{item.id}}= {{item.name}}
+        </li>
+          </div>
+        </ul>
+        
+        <ul>
+          <ng-container *ngFor="let item of items">
+        <li *ngIf="item.id==1">
+          {{item.id}}={{item.name}}
+        </li>
+        </ng-container>
+        </ul>
+        
+        <!-- //3rd example
+        <ng-container *ngFor="let num of [2,5,12,3,40]">
+          <ng-container *ngIf="num%2==0">
+          {{num}}
+        </ng-container>
+        </ng-container> -->
+        
+        <!-- <NG-TEMPLATE></NG-TEMPLATE> -->
+        <!--content will not display from ngtemplate until we linked up to structural directive  -->
+        
+        <div *ngIf="login;else temp">
+        success
+        </div>
+        
+        <ng-template #temp>
+          invalid
+        </ng-template>
+        
+        <!-- <NG-CONTENT></NG-CONTENT> -->
+        <!-- to display data  from html or data from p->c/c->p we use ng-content ng-template -->
+        <!-- The ng-content is used when we want to insert the content dynamically inside the component that helps to increase component reusability. -->
+        
+        <!-- <div>
+          parent
+        </div>
+        <app-child>
+          <div>{{l}}</div>
+        </app-child><app-child>
+          <div>{{2}}</div>
+        </app-child> -->

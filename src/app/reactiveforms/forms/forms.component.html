@@ -1,0 +1,195 @@
+<button
+  type="button"
+  id="form"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Add
+</button>
+<div>
+  <form [formGroup]="userForm" id="form">
+    <div class="mt-5 box">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Name:</label>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="text"
+              formControlName="name"
+              class="form-control"
+              placeholder="Name"
+            />
+          </div>
+          <p
+            class="text-danger"
+            *ngIf="
+              userForm.controls['name'].invalid &&
+              userForm.controls['name'].touched
+            "
+          >
+            Please enter a name
+          </p>
+          <p
+            class="text-danger"
+            *ngIf="
+              userForm.controls['name'].touched &&
+              userForm.controls['name'].hasError('minlength')
+            "
+          >
+            Name should be of minimum 2 charachters
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Address:</label>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="text"
+              formControlName="address"
+              class="form-control"
+              placeholder="Address"
+            />
+          </div>
+          <p
+            class="text-danger"
+            *ngIf="
+              userForm.controls['address'].invalid &&
+              userForm.controls['address'].touched
+            "
+          >
+            Please enter the address
+          </p>
+          <p
+            class="text-danger"
+            *ngIf="
+              userForm.controls['address'].touched &&
+              userForm.controls['v'].hasError('minlength')
+            "
+          >
+            Address should be of minimum 5 charachters
+          </p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Email:</label>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control"
+              placeholder="example@abc.com"
+            />
+          </div>
+          <p
+            class="text-danger"
+            *ngIf="
+              userForm.controls['email'].invalid &&
+              userForm.controls['email'].touched
+            "
+          >
+            Please enter a email
+          </p>
+          <p
+            class="text-danger"
+            *ngIf="
+              userForm.controls['email'].touched &&
+              userForm.controls['email'].hasError('pattern')
+            "
+          >
+            email should be of
+          </p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Contact No:</label>
+        </div>
+        <div class="form-row">
+          <div class="col">
+            <input
+              type="number"
+              onkeydown=" if (/^[eE.\+\-]$/.test(event.key)) event.preventDefault();"
+              onPaste=" if (!/^\d+$/.test(event.clipboardData.getData('text/plain')))
+
+      event.preventDefault(); "
+              formControlName="contactNo"
+              class="form-control"
+              placeholder="Contact NO"
+            />
+          </div>
+          <p
+            class="text-danger"
+            *ngIf="
+              userForm.controls['contactNo'].invalid &&
+              userForm.controls['contactNo'].touched
+            "
+          >
+            Please enter a contactNo
+          </p>
+          <p
+            class="text-danger"
+            *ngIf="
+              userForm.controls['contactNo'].touched &&
+              userForm.controls['contactNo'].hasError('minlength')
+            "
+          >
+            Name should be of minimum 2 charachters
+          </p>
+        </div>
+      </div>
+
+      <div class="form-row mt-4">
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-primary" (click)="addItem()">
+            Add</button
+          >&nbsp;
+          <button type="button" class="btn btn-primary" (click)="reset()">
+            Reset</button
+          >&nbsp;
+
+          <button type="button" class="btn btn-primary" (click)="close()">
+            close
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>sno</th>
+        <th>name</th>
+        <th>address</th>
+        <th>email</th>
+        <th>contactNo</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of userData; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.contactNo }}</td>
+
+        <button (click)="editItem(item, i)" class="btn btn-primary">Edit</button
+        >&nbsp;
+        <button (click)="removeItem(item)" class="btn btn-danger">Remove</button
+        >&nbsp;
+      </tr>
+    </tbody>
+  </table>
+</div>

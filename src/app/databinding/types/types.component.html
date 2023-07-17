@@ -1,0 +1,16 @@
+<p #maincontent [class]="'fw-bold'">{{ types }}</p>
+
+
+<!-- STRUCTURAL DIRECTIVE -->
+<ng-container *ngIf="data">
+  <h1 *ngFor="let item of data" #num>{{ data }}</h1>
+</ng-container>
+
+<div *ngIf="fruitsList; else notFru">
+  <p *ngFor="let fru of fruits">{{ fru }}</p>
+</div>
+<ng-template #notFru>No fruits in our list</ng-template>
+
+<button class="btn btn-primary" (click)="changeMainContent()">
+  Change main content
+</button>

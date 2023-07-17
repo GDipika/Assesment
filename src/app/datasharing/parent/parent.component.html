@@ -1,0 +1,14 @@
+<div class="container my-4">
+    <div class="card text-center h-200 w-75 mx-auto my-4">
+      <h2>Parent to Child</h2>
+      
+      <app-child [child]="data1" (get)="adduser($event)"></app-child>
+
+      <!-- <img src="\assets\parent to child.svg" height=""> -->
+      <div *ngFor="let name of names">
+        {{ name }}
+      </div>
+    </div>
+  </div>
+  
+<!-- two-way data binding -->
